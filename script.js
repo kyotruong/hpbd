@@ -1,77 +1,66 @@
-
-window.addEventListener("DOMContentLoaded", () => {
-  const audio = document.getElementById("birthday-audio");
-  if (audio) {
-    audio.play().catch(() => {
-      const btn = document.getElementById("wish-button");
-      if (btn) {
-        btn.addEventListener("click", () => {
-          audio.play();
-        });
-      }
-    });
-  }
-
-  document.getElementById("wish-button").addEventListener("click", () => {
-    alert(`Chào bé Ney 3 tủi. Chúc em sinh nhật vui vẻ. Chúc mừng đã đi được 1 nửa cuộc đời, và hoàn thành được 1 nửa các nguyện vọng mà em mong muốn. Mặc dù chưa được trọn vẹn như ý em, nhưng cũng là thành tựu đáng ghi nhận mà em nhỉ? Chúng ta đã cùng nhau làm mọi thứ, cùng nhau trải qua gần như là mọi khó khăn, mới có được ngày hôm nay. Cố gắng giữ nhau nhé hahah, đừng để đối phương đi hại đời người khác nữa. Chúng ta là mảnh ghép đẹp nhất rồi. Cảm ơn em đã luôn cho anh cơ hội ở lại với em. Cảm ơn tình yêu của anh. Một lần nữa. Chúc mừng sinh nhật Vợ Yêu của Ba Kyo!!!!!!!!`);
-  });
-});
-
-const canvas = document.getElementById("fireworksCanvas");
+// Fireworks effect
+const canvas = document.getElementById("fireworks-canvas");
 const ctx = canvas.getContext("2d");
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let fireworks = [];
+let particles = [];
 
-function random(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
-function createFirework() {
-  const x = random(100, canvas.width - 100);
-  const y = random(100, canvas.height / 2);
-  const colors = ['#ff69b4', '#ffcc00', '#ff6666', '#66ccff', '#ffffff'];
-
-  for (let i = 0; i < 50; i++) {
-    const angle = Math.random() * 2 * Math.PI;
-    const speed = random(2, 5);
-    fireworks.push({
-      x, y,
-      dx: Math.cos(angle) * speed,
-      dy: Math.sin(angle) * speed,
-      alpha: 1,
-      radius: random(1, 3),
-      color: colors[Math.floor(Math.random() * colors.length)]
+function createFirework(x, y) {
+  for (let i = 0; i < 80; i++) {
+    particles.push({
+      x: x,
+      y: y,
+      angle: Math.random() * 2 * Math.PI,
+      speed: Math.random() * 5 + 2,
+      radius: 2,
+      life: 100,
+      color: `hsl(${Math.random() * 360}, 100%, 60%)`,
     });
   }
 }
 
-function animateFireworks() {
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  fireworks.forEach((p, i) => {
-    p.x += p.dx;
-    p.y += p.dy;
-    p.alpha -= 0.01;
-
+function updateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((p, i) => {
+    p.x += Math.cos(p.angle) * p.speed;
+    p.y += Math.sin(p.angle) * p.speed;
+    p.life--;
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
-    ctx.fillStyle = `rgba(${hexToRgb(p.color)},${p.alpha})`;
+    ctx.fillStyle = p.color;
     ctx.fill();
-
-    if (p.alpha <= 0) fireworks.splice(i, 1);
+    if (p.life <= 0) particles.splice(i, 1);
   });
+}
 
+function animateFireworks() {
+  updateParticles();
   requestAnimationFrame(animateFireworks);
 }
-
-function hexToRgb(hex) {
-  const bigint = parseInt(hex.replace('#', ''), 16);
-  return `${(bigint >> 16) & 255},${(bigint >> 8) & 255},${bigint & 255}`;
-}
-
-setInterval(createFirework, 1500);
 animateFireworks();
+
+setInterval(() => {
+  const x = Math.random() * canvas.width;
+  const y = Math.random() * canvas.height / 2;
+  createFirework(x, y);
+}, 1200);
+
+// Modal logic
+const modal = document.getElementById("custom-modal");
+const btn = document.getElementById("wish-button");
+const span = document.querySelector(".close-btn");
+
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};

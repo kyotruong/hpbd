@@ -1,101 +1,129 @@
+/* Nền pháo hoa động (có thể thêm hiệu ứng canvas khác nếu muốn) */
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #000;
-  color: #fff;
+  font-family: "Segoe UI", sans-serif;
+  background-color: black;
   overflow: hidden;
 }
 
-#fireworks-container {
+.fireworks-background {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  background: url("fireworks.gif") center/cover no-repeat;
+  z-index: -1;
 }
 
-.birthday-card {
-  position: relative;
-  z-index: 1;
-  max-width: 600px;
-  margin: 80px auto;
-  background: rgba(255, 255, 255, 0.1);
+/* Thẻ chính */
+.card {
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 20px;
-  padding: 30px 20px;
+  padding: 40px;
+  max-width: 600px;
+  margin: 60px auto;
   text-align: center;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
-.birthday-card h1 {
+/* Tiêu đề */
+.card h1 {
   font-size: 2rem;
-  color: #fff;
   margin-bottom: 20px;
+  color: #333;
 }
 
+/* Nút */
 #wish-button {
-  background-color: #ff0080;
+  background-color: deeppink;
   color: white;
-  padding: 12px 20px;
-  font-size: 16px;
+  font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
+  padding: 12px 25px;
+  font-size: 16px;
   cursor: pointer;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  transition: background 0.3s;
 }
 
 #wish-button:hover {
-  background-color: #ff33a6;
+  background-color: hotpink;
 }
 
+/* Ký tên */
 .signature {
   font-size: 1rem;
-  margin-bottom: 15px;
+  color: #555;
 }
 
-.cake {
-  max-width: 200px;
-  margin-top: 10px;
-  border-radius: 10px;
+/* Hình ảnh bánh */
+.cake-image {
+  margin-top: 20px;
+  width: 250px;
+  height: auto;
+  border-radius: 15px;
 }
 
-/* Modal Styling */
+/* Modal */
 .modal {
   display: none;
   position: fixed;
-  z-index: 10;
+  z-index: 20;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content {
-  background-color: #fff;
+  background: #fff;
   color: #333;
-  margin: 10% auto;
   padding: 30px;
-  border-radius: 10px;
-  width: 80%;
+  border-radius: 15px;
+  width: 90%;
   max-width: 600px;
-  box-shadow: 0 0 20px #fff;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  position: relative;
 }
 
 .modal-content h2 {
   margin-top: 0;
   color: #d63384;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
-.modal-content p {
-  line-height: 1.6;
+.modal-message {
   font-size: 16px;
+  line-height: 1.6;
+  margin-top: 15px;
+  max-height: 60vh;
+  overflow-y: auto;
 }
 
+/* Nút đóng modal */
 .close-btn {
-  float: right;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
+.close-btn:hover {
+  background: #e60026;
+}

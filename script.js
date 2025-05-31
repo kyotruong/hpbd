@@ -1,6 +1,5 @@
-// script.js
 function showMessage() {
-  document.getElementById("overlay").style.display = "block";
+  document.getElementById("overlay").style.display = "flex";
 }
 
 function hideMessage() {
@@ -72,3 +71,4 @@ function animate() {
 }
 
 animate();
+

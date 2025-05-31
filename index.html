@@ -1,41 +1,163 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bòn bon không hạt gửi em...</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="fireworks-background"></div>
+<html lang="en">
 
-  <div class="card">
-    <h1>🎉 Happy Birthday Bé Ney 🍰</h1>
-    <button id="wish-button">🎁 Bấm vào để nhận lời chúc đặc biệt!</button>
-    <p class="signature">Ký tên: Bòn Bon Không Hạt Yêu Em</p>
-    <img src="https://st.quantrimang.com/photos/image/2018/01/29/hinh-anh-dong-chuc-sinh-nhat-11.gif" alt="Bánh sinh nhật" class="cake-image" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Bé Ney</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://i.gifer.com/7efs.gif') center/cover no-repeat; /* Pháo hoa nền */
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .cake {
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: rgba(255, 192, 203, 0.8);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ff69b4;
+    }
+
+    .btn:hover {
+      background-color: #ff69b4;
+    }
+
+    .signature {
+      margin-top: 80px;
+      font-size: 1.5em;
+      font-style: italic;
+      color: #ffccff;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      box-sizing: border-box;
+    }
+
+    #overlayContent {
+      max-width: 800px;
+      margin: auto;
+      font-size: 20px;
+      background-color: #222;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px #fff;
+    }
+
+    #closeBtn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #ff69b4;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="snow">
+    <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
+    <script>
+      window.onload = () => {
+        particlesJS('snow', {
+          particles: {
+            number: { value: 200 },
+            color: { value: '#ffffff' },
+            shape: { type: 'circle' },
+            opacity: { value: 0.8 },
+            size: { value: 4 },
+            move: { enable: true, speed: 1 }
+          },
+          interactivity: { events: { onhover: { enable: false } } },
+          retina_detect: true
+        });
+      }
+    </script>
   </div>
 
-  <!-- Modal -->
-  <div id="custom-modal" class="modal">
-    <div class="modal-content">
-      <button class="close-btn">✖</button>
-      <h2>🎉 Bòn Bon không hạt gửi em...</h2>
-      <div class="modal-message">
-        <p>
-          Chào bé Ney 3 tủi. Chúc em sinh nhật vui vẻ. Chúc mừng đã đi được 1 nửa cuộc đời,
-          và hoàn thành được 1 nửa các nguyện vọng mà em mong muốn. Mặc dù chưa được trọn vẹn như ý em,
-          nhưng cũng là thành tựu đáng ghi nhận mà em nhỉ?<br><br>
-          Chúng ta đã cùng nhau làm mọi thứ, cùng nhau trải qua gần như là mọi khó khăn, mới có được ngày hôm nay.<br><br>
-          Cố gắng giữ nhau nhé hahah, đừng để đối phương đi hại đời người khác nữa.
-          Chúng ta là mảnh ghép đẹp nhất rồi.<br><br>
-          Cảm ơn em đã luôn cho anh cơ hội ở lại với em. Cảm ơn tình yêu của anh.<br><br>
-          Một lần nữa. Chúc mừng sinh nhật Vợ Yêu của Ba Kyo!!!!!!!!
-        </p>
-      </div>
+  <div class="container">
+    <h1>Happy Birthday Bé Ney</h1>
+    <img src="https://st.quantrimang.com/photos/image/2018/01/29/hinh-anh-dong-chuc-sinh-nhat-11.gif" alt="Birthday Cake" class="cake">
+    <br>
+    <button class="btn" onclick="showMessage()">Bấm vào để nhận lời chúc đặc biệt!</button>
+    <div class="signature">Bòn Bon không hạt yêu em!</div>
+  </div>
+
+  <div id="overlay">
+    <div id="overlayContent">
+      <p>Chào bé Ney 3 tủi. Chúc em sinh nhật vui vẻ. Chúc mừng đã đi được 1 nửa cuộc đời, và hoàn thành được 1 nửa các nguyện vọng mà em mong muốn. Mặc dù chưa được trọn vẹn như ý em, nhưng cũng là thành tựu đáng ghi nhận mà em nhỉ?<br><br>
+        Chúng ta đã cùng nhau làm mọi thứ, cùng nhau trải qua gần như là mọi khó khăn, mới có được ngày hôm nay.<br><br>
+        Cố gắng giữ nhau nhé hahah, đừng để đối phương đi hại đời người khác nữa. Chúng ta là mảnh ghép đẹp nhất rồi.<br><br>
+        Cảm ơn em đã luôn cho anh cơ hội ở lại với em. Cảm ơn tình yêu của anh.<br><br>
+        Một lần nữa. Chúc mừng sinh nhật Vợ Yêu của Ba Kyo!!!!!!!!</p>
+      <button id="closeBtn" onclick="hideMessage()">Đóng</button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <audio autoplay loop>
+    <source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid" type="audio/midi">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function showMessage() {
+      document.getElementById('overlay').style.display = 'block';
+    }
+    function hideMessage() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
 </body>
+
 </html>

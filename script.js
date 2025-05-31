@@ -10,12 +10,12 @@ function hideMessage() {
 window.onload = () => {
   particlesJS('snow', {
     particles: {
-      number: { value: 150 },
+      number: { value: 200 },
       color: { value: '#ffffff' },
-      shape: { type: 'circle' },
-      opacity: { value: 0.7 },
-      size: { value: 3 },
-      move: { enable: true, speed: 0.6 }
+      shape: { type: 'image', image: { src: 'https://cdn-icons-png.flaticon.com/512/4151/4151654.png', width: 32, height: 32 } },
+      opacity: { value: 0.9 },
+      size: { value: 10 },
+      move: { enable: true, speed: 1 }
     },
     interactivity: { events: { onhover: { enable: false } } },
     retina_detect: true

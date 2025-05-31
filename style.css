@@ -3,15 +3,20 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom right, #ffd6e8, #ffe6f0);
+  background: linear-gradient(to bottom right, #ffe4ec, #ffd1f7);
   color: #4a004a;
   overflow-x: hidden;
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
 .container {
-  text-align: center;
-  padding-top: 100px;
+  max-width: 800px;
 }
 
 h1 {
@@ -22,7 +27,6 @@ h1 {
 
 .cake {
   width: 300px;
-  margin: 0 auto;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
 }
@@ -65,11 +69,13 @@ h1 {
   text-align: center;
   padding: 50px 20px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #overlayContent {
   max-width: 800px;
-  margin: auto;
   font-size: 20px;
   background-color: #222;
   padding: 30px;
@@ -88,16 +94,25 @@ h1 {
   cursor: pointer;
 }
 
-.snow {
+#snow {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 999;
-  background: url('https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif') center center repeat;
+  z-index: 1;
+  background: url('https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif') repeat center center;
   background-size: cover;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
+#fireworksCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}

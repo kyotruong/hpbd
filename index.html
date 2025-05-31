@@ -3,41 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bòn Bon không hạt gửi em...</title>
+  <title>Bòn bon không hạt gửi em...</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="fireworks-container">
-    <canvas id="fireworks-canvas"></canvas>
-  </div>
+  <div class="fireworks-background"></div>
 
-  <div class="birthday-card">
+  <div class="card">
     <h1>🎉 Happy Birthday Bé Ney 🍰</h1>
     <button id="wish-button">🎁 Bấm vào để nhận lời chúc đặc biệt!</button>
     <p class="signature">Ký tên: Bòn Bon Không Hạt Yêu Em</p>
-    <img class="cake" src="https://st.quantrimang.com/photos/image/2018/01/29/hinh-anh-dong-chuc-sinh-nhat-11.gif" alt="Bánh sinh nhật đáng yêu" />
+    <img src="https://st.quantrimang.com/photos/image/2018/01/29/hinh-anh-dong-chuc-sinh-nhat-11.gif" alt="Bánh sinh nhật" class="cake-image" />
   </div>
 
+  <!-- Modal -->
   <div id="custom-modal" class="modal">
     <div class="modal-content">
-      <span class="close-btn">&times;</span>
+      <button class="close-btn">✖</button>
       <h2>🎉 Bòn Bon không hạt gửi em...</h2>
-      <p>
-        Chào bé Ney 3 tủi. Chúc em sinh nhật vui vẻ. Chúc mừng đã đi được 1 nửa cuộc đời, và hoàn thành được 1 nửa các nguyện vọng mà em mong muốn. Mặc dù chưa được trọn vẹn như ý em, nhưng cũng là thành tựu đáng ghi nhận mà em nhỉ?<br><br>
-        Chúng ta đã cùng nhau làm mọi thứ, cùng nhau trải qua gần như là mọi khó khăn, mới có được ngày hôm nay.<br><br>
-        Cố gắng giữ nhau nhé hahah, đừng để đối phương đi hại đời người khác nữa. Chúng ta là mảnh ghép đẹp nhất rồi.<br><br>
-        Cảm ơn em đã luôn cho anh cơ hội ở lại với em. Cảm ơn tình yêu của anh.<br><br>
-        Một lần nữa. Chúc mừng sinh nhật Vợ Yêu của Ba Kyo!!!!!!!!
-      </p>
+      <div class="modal-message">
+        <p>
+          Chào bé Ney 3 tủi. Chúc em sinh nhật vui vẻ. Chúc mừng đã đi được 1 nửa cuộc đời,
+          và hoàn thành được 1 nửa các nguyện vọng mà em mong muốn. Mặc dù chưa được trọn vẹn như ý em,
+          nhưng cũng là thành tựu đáng ghi nhận mà em nhỉ?<br><br>
+          Chúng ta đã cùng nhau làm mọi thứ, cùng nhau trải qua gần như là mọi khó khăn, mới có được ngày hôm nay.<br><br>
+          Cố gắng giữ nhau nhé hahah, đừng để đối phương đi hại đời người khác nữa.
+          Chúng ta là mảnh ghép đẹp nhất rồi.<br><br>
+          Cảm ơn em đã luôn cho anh cơ hội ở lại với em. Cảm ơn tình yêu của anh.<br><br>
+          Một lần nữa. Chúc mừng sinh nhật Vợ Yêu của Ba Kyo!!!!!!!!
+        </p>
+      </div>
     </div>
   </div>
-
-  <audio id="birthday-audio" autoplay loop>
-    <source src="happy_birthday.mp3" type="audio/mpeg">
-    Trình duyệt của bạn không hỗ trợ phát nhạc.
-  </audio>
 
   <script src="script.js"></script>
 </body>
 </html>
-

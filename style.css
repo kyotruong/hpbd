@@ -1,129 +1,97 @@
-/* Nền pháo hoa động (có thể thêm hiệu ứng canvas khác nếu muốn) */
+/* style.css */
 body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background-color: black;
-  overflow: hidden;
-}
-
-.fireworks-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("fireworks.gif") center/cover no-repeat;
-  z-index: -1;
-}
-
-/* Thẻ chính */
-.card {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  padding: 40px;
-  max-width: 600px;
-  margin: 60px auto;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-/* Tiêu đề */
-.card h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-/* Nút */
-#wish-button {
-  background-color: deeppink;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('https://i.gifer.com/7efs.gif') center/cover no-repeat;
   color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 25px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  transition: background 0.3s;
-}
-
-#wish-button:hover {
-  background-color: hotpink;
-}
-
-/* Ký tên */
-.signature {
-  font-size: 1rem;
-  color: #555;
-}
-
-/* Hình ảnh bánh */
-.cake-image {
-  margin-top: 20px;
-  width: 250px;
-  height: auto;
-  border-radius: 15px;
-}
-
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 20;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: #fff;
-  color: #333;
-  padding: 30px;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 600px;
-  max-height: 80vh;
-  overflow-y: auto;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  overflow-x: hidden;
   position: relative;
 }
 
-.modal-content h2 {
-  margin-top: 0;
-  color: #d63384;
-  font-size: 1.5rem;
+.container {
   text-align: center;
+  padding-top: 100px;
 }
 
-.modal-message {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-top: 15px;
-  max-height: 60vh;
-  overflow-y: auto;
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #000;
 }
 
-/* Nút đóng modal */
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: #ff4d4f;
-  color: white;
-  border: none;
+.cake {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.btn {
+  margin-top: 30px;
+  padding: 15px 30px;
   font-size: 18px;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  background-color: rgba(255, 192, 203, 0.8);
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 10px #ff69b4;
 }
 
-.close-btn:hover {
-  background: #e60026;
+.btn:hover {
+  background-color: #ff69b4;
+}
+
+.signature {
+  margin-top: 80px;
+  font-size: 1.5em;
+  font-style: italic;
+  color: #ffccff;
+  text-shadow: 1px 1px 2px #000;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+#overlayContent {
+  max-width: 800px;
+  margin: auto;
+  font-size: 20px;
+  background-color: #222;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #fff;
+}
+
+#closeBtn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #ff69b4;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
 }

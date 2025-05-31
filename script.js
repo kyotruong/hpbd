@@ -10,16 +10,14 @@ function hideMessage() {
 window.onload = () => {
   particlesJS('snow', {
     particles: {
-      number: { value: 200 },
+      number: { value: 150 },
       color: { value: '#ffffff' },
       shape: { type: 'circle' },
-      opacity: { value: 0.8 },
-      size: { value: 4 },
-      move: { enable: true, speed: 1 }
+      opacity: { value: 0.7 },
+      size: { value: 3 },
+      move: { enable: true, speed: 0.6 }
     },
     interactivity: { events: { onhover: { enable: false } } },
     retina_detect: true
   });
 };
-
-
